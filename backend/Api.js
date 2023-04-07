@@ -42,11 +42,12 @@ app.post('/register', (req, res) => {
     const requette="INSERT INTO users (nom, prenom, email, password ) values ($1,$2,$3,$4)"
     client.query(requette,newUser,callback )
     function callback (error,data){
-  if (error) {
-   console.error("Error saving user: ", error);
-   return res.status(500).json({ message: "Internal server error" });
-  }
-     res.json({message:"User ok"}) }  
+       if (error) {
+          console.error("Error saving user: ", error);
+          return res.status(500).json({ message: "Internal server error" });
+        }
+      res.json({message:"User ok"}) }  
+      
    });
    });
   });
